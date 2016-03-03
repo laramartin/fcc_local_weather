@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	$("#clickHere").on("click", function() {
-		console.log("CLICKEDDDDDDDDDDDDD");
+	// $("#clickHere").on("click", function() {
+	// 	console.log("CLICKEDDDDDDDDDDDDD");
 
 		// geolocation
 		// https://developer.mozilla.org/es/docs/Web/API/Geolocation/getCurrentPosition
@@ -67,15 +67,17 @@ $(document).ready(function() {
 				d = new Date();
 				var localTime = d.toLocaleString();
 
-				var html = "<div class= 'localWeather'> location: " + location +
-					"<br> max: " + tempMax + "&#8451" +
-					"<br> min: " + tempMin + "&#8451" +
-					"<br> forecast: "+ forecast +
-					"<br> humidity: " + humidity + "%" +
-					"<br> wind: " + wind + " meter/sec" + "</div>" +
-					"<div class= 'imgWeather'><img src=\"" + urlIcon + "\"></div>" +
-					"<div class= 'localTime'><br>" + localTime + "</div>";
-					
+				var html = "<div class= 'localWeather'>" +
+					"<div id='city'>" + location + "</div>" +
+					"<br><br>" + localTime +
+					"<br><br> Max: " + tempMax + "&#8451" +
+					"<br><br> Min: " + tempMin + "&#8451" +
+					"<br><br> Humidity: " + humidity + "%" +
+					"<br><br> Wind: " + wind + " meter/sec" +
+					"<br><br> Forecast: "+ forecast +
+					"<div class= 'imgWeather'><img src=\"" + urlIcon + "\"></div>"
+					 + "</div>";
+
 				$(".weatherInfo").html(html);
 
 			})
@@ -84,7 +86,7 @@ $(document).ready(function() {
 
 
 
-	});
+	// });
 
 
 })

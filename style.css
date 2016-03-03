@@ -1,1 +1,15 @@
 /*style*/
+.jumbotron {
+  font-size: large;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: transparent !important;
+}
+
+body {
+  background-color: #c6e5d9 !important;
+}
+
+#city {
+  font-size: 30px;
+}
