@@ -47,8 +47,8 @@ $(document).ready(function() {
 			$.getJSON(url, function(data){
 
 				var location = data.name;
-				var tempMax = data.main.temp_max;
-				var tempMin = data.main.temp_min;
+				var tempMax = Math.round(data.main.temp_max);
+				var tempMin = Math.round(data.main.temp_min);
 				var forecast = data.weather[0].main;
 				var humidity = data.main.humidity;
 				var wind = data.wind.speed;
@@ -63,18 +63,24 @@ $(document).ready(function() {
 				console.log("temp max: " + tempMax);
 				console.log("icon: " + icon);
 
+				// local time
+				d = new Date();
+				var localTime = d.toLocaleString();
+
 				var html = "<div class= 'localWeather'> location: " + location +
 					"<br> max: " + tempMax + "&#8451" +
 					"<br> min: " + tempMin + "&#8451" +
 					"<br> forecast: "+ forecast +
 					"<br> humidity: " + humidity + "%" +
-					"<br> wind: " + wind + " meter/sec" +
-					"</div>" +
-					"<div class= 'imgWeather'><img src=\"" + urlIcon + "\"></div>";
+					"<br> wind: " + wind + " meter/sec" + "</div>" +
+					"<div class= 'imgWeather'><img src=\"" + urlIcon + "\"></div>" +
+					"<div class= 'localTime'><br>" + localTime + "</div>";
+					
 				$(".weatherInfo").html(html);
 
 			})
 		};
+
 
 
 
