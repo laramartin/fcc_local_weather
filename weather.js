@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	weather();
+
 	$("#myonoffswitch").on("click", function(){
 		weather();
-		console.log("olakaseee");
 	});
 });
 
@@ -17,9 +17,9 @@ function weather(){
 		};
 
 		var url = "";
-		var tempMax = 0;
-		var tempMin = 0;
-
+		//var tempMax = 0;
+		//var tempMin = 0;
+		//var celsius = true;
 		function success(pos) {
 			var crd = pos.coords;
 			var lat = crd.latitude;
@@ -41,11 +41,21 @@ function weather(){
 			$.getJSON(url, function(data){
 
 				var location = data.name;
-				var tempMax = Math.round(data.main.temp_max);
-				var tempMin = Math.round(data.main.temp_min);
+				var celsius = $("#myonoffswitch").is(':checked') ;
+				if (celsius) {
+					var temp = Math.round(data.main.temp);
+					var tempStr = "&#8451";
+				}
+				else{
+					var temp = Math.round(data.main.temp) *  9/5 + 32;
+					var tempStr = "&#8457";
+				}
+
+				//var tempMax = Math.round(data.main.temp_max);
+				//var tempMin = Math.round(data.main.temp_min);
 				// °C  x  9/5 + 32 = °F
-				var tempMaxF = tempMax * 9/5 + 32;
-				var tempMinF = tempMin * 9/5 + 32;
+				//var tempMaxF = tempMax * 9/5 + 32;
+				//var tempMinF = tempMin * 9/5 + 32;
 				var forecast = data.weather[0].main;
 				var humidity = data.main.humidity;
 				var wind = data.wind.speed;
@@ -59,8 +69,7 @@ function weather(){
 				var html = "<div class= 'localWeather'>" +
 				"<div id='city'>" + location + "</div>" +
 				"<br><br>" + localTime +
-				"<br><br> Max: " + tempMax + "&#8451" +
-				"<br><br> Min: " + tempMin + "&#8451" +
+				"<br><br> Temp: " + temp + tempStr +
 				"<br><br> Humidity: " + humidity + "%" +
 				"<br><br> Wind: " + wind + " meter/sec" +
 				"<br><br> Forecast: "+ forecast +
