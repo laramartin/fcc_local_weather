@@ -17,7 +17,7 @@ body {
 }
 
 .onoffswitch {
-    position: relative; width: 67px;
+    position: relative; width: 80px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
@@ -33,17 +33,17 @@ body {
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block; float: left; width: 50%; height: 26px; padding: 0; line-height: 26px;
-    font-size: 16px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "℃";
+    content: "Celsius";
     padding-left: 16px;
     background-color: #2BC8D6; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "℉";
-    padding-right: 16px;
+    content: "Fahrenheit";
+    padding-right: 5px;
     background-color: #EEEEEE; color: #999999;
     text-align: right;
 }
@@ -51,7 +51,7 @@ body {
     display: block; width: 12px; margin: 7px;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    right: 37px;
+    right: 55px;
     border: 2px solid #999999; border-radius: 14px;
     transition: all 0.3s ease-in 0s;
 }
